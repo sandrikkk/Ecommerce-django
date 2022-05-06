@@ -41,31 +41,32 @@
             <h1 class="bigHead center">All PRODUCTS</h1>
             <div class="section_container">
                 {% for product in products %}
-              <div class="card">
-                  <div class="imgBx">
-                      <img src="{{product.images.url}}" alt="">
-                      <ul class="action">
-                          <li><i class="fa-solid fa-eye"></i><span>Add To Wish List</span></li>
-                          <li><i class="fa-regular fa-heart"></i><span>View Details</span></li>
-                          <li><i class="fa-solid fa-cart-shopping"></i><span>Add To Cart</span></li>
-                      </ul>
-                  </div>
-                  <div class="content">
-                       <div class="ProductName">
-                           <h3> {{product.product_name}} </h3>
-                       </div>
-                       <div class="price_rating">
-                           <h2> ${{product.price}} </h2>
-                           <div class="rating">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                           </div>
-                       </div>
-                  </div>
-              </div>
+                <div class="card">
+                    <div class="imgBx">
+                        <a href="{{product.get_url}}"><img src="{{product.images.url}}" alt=""></a>
+                        <ul class="action">
+                            <a href="{{product.get_url}}"><li><i class="fa-solid fa-eye"></i><span>View Details</span></li></a>
+                            <a class = 'heart' href=""><li><i class="fa-regular fa-heart"></i><span> Add To Wish List</span></li></a>
+                            <a class = 'add' href=""><li><i class="fa-solid fa-cart-shopping"></i><span>Add To Cart</span></li></a>
+                        </ul>
+                    </div>
+                    <div class="content">
+                         <div class="ProductName">
+                             <a class = 'productline' href="{{product.get_url}}"><h3>{{product.product_name}}</h3></a>
+                         </div>
+                         <div class="price_rating">
+                             <h2>${{product.price}}</h2>
+                             <h3>${{product.stock}}</h3>
+                             <div class="rating">
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                              <i class="fa-solid fa-star"></i>
+                             </div>
+                         </div>
+                    </div>
+                </div>
               {% endfor %}
             </div>
         </div>
