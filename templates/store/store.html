@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<!-- --------------------------section---------------------- -->
+
+<section class="container body-container">
+     <div class="d-flex main-categories">
+         {% for categorybysex in linkss %}
+        <a href="{{categorybysex.get_url}}" class="main-category-item">
+            <i class="fa-solid fa-person"></i>
+            <h3> {{categorybysex.category_name}} </h3>
+        </a>
+        {% endfor %}
+    </div>
+    <div class="d-flex shop-body">
+        <ul class="category-navigation-list">      
+              <aside id="filters">
+                <h1 class="bigHead">FILTER SHOP ITEMS</h1>
+                <h2 class="bump"><span class="results">{{product_count}}</span> Results Found</h2>
+              
+                <div id="type">
+                  <h1>Categories</h1>
+                  <div class="bump">
+                      <div class = "box1">
+                          <h4><a href="{% url 'store' %}">All Products</a></h4>
+                      </div>
+                      {% for category in links %}
+                    <div class="box1">
+                      <h4><a href=" {{category.get_url}} "> {{category.category_name}} </a></h4>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+                <!--END SPECIALS RANGE -->
+              </aside>
+        </ul>
+        <div class="blog-container">
+            <h1 class="bigHead center">All PRODUCTS</h1>
+            <div class="section_container">
+                {% for product in products %}
+              <div class="card">
+                  <div class="imgBx">
+                      <img src="{{product.images.url}}" alt="">
+                      <ul class="action">
+                          <li><i class="fa-solid fa-eye"></i><span>Add To Wish List</span></li>
+                          <li><i class="fa-regular fa-heart"></i><span>View Details</span></li>
+                          <li><i class="fa-solid fa-cart-shopping"></i><span>Add To Cart</span></li>
+                      </ul>
+                  </div>
+                  <div class="content">
+                       <div class="ProductName">
+                           <h3> {{product.product_name}} </h3>
+                       </div>
+                       <div class="price_rating">
+                           <h2> ${{product.price}} </h2>
+                           <div class="rating">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                           </div>
+                       </div>
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock body %}

@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  font-family:'Open Sans', sans-serif;
+}
+body{
+  background: #f2f2f2;
+}
+
+/* ===================================navigation======================= */
+.logo a{
+  color:#fff;
+  text-decoration: none;
+}
+.navbar{
+  background: #171c34;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  height: 70px;
+  padding: 0 100px;
+}
+nav .nav-items{
+  display: flex;
+  flex: 1;
+  list-style: none;
+  padding-left: 40px;
+}
+nav .logo{
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+nav .nav-items li{
+  padding: 0 15px;
+}
+nav .nav-items li a{
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+}
+nav .nav-items li a:hover{
+  color: #ff3d00;
+}
+nav form{
+  display: flex;
+  height: 40px;
+  background: #1e232b;
+  border-radius: 2px;
+  padding: 2px;
+  min-width: 18%;
+  border: 1px solid rgba(155,155,155,0.2);
+}
+nav form .search-data{
+  height: 100%;
+  width: 100%;
+  padding:0 10px;
+  color: #fff;
+  font-weight: 500;
+  background: none;
+  border: none;
+  font-size: 17px;
+}
+nav form button{
+  padding: 0 15px;
+  background: #ff3d00;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  color: #fff;
+}
+.icon{
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+  margin-left: 15px;
+}
+.icon:hover{
+  color: #ff3d00 ;
+}
+.login a,span{
+  color: #fff;
+  margin-left: 15px;
+  font-size: 17px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.login a:hover{
+  color: #ff3d00;
+}
+/* ----------------------------------section---------------------------------- */
+.swiper{
+  margin-top: 10px;
+  width: 80%;
+  height: fit-content;
+}
+.swiper-slide img{
+  width: 100%;
+}
+.swiper .swiper-button-prev , .swiper .swiper-button-next{
+  color: #fff;
+}
+.swiper .swiper-pagination-bullet-active{
+  background: #fff;
+}
+/* ------------------------feature---------------------- */
+.container{
+  max-width: 1210px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+#featured{
+  margin-top: 2.5rem;
+}
+.row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}
+.product{
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+.product img{
+  transition: 0.3s all;
+}
+.product:hover img{
+  opacity: 0.7;
+}
+
+hr{
+  width: 30px;
+  height: 5px;
+  background-color: #fb774b;
+  margin:auto;
+}
+/* ------------------footer----------------- */
+
+
+
