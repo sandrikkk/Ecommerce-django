@@ -584,10 +584,42 @@ h4 {
   #cart table tbody tr td{
     padding-top: 20px;
   }
-  #cart table tbody td{
-    font-size: 13px;
+  .quantity{
+    display: flex;
+    align-items: center;
   }
-  .subtotal{
+  .quantity .input-group-prepend button i,
+  .quantity .input-group-append button i{
+    padding: 5px;
+    cursor: pointer;
+  }
+  .quantity input{
+    padding: 5px;
+    margin: 0 5px;
+    text-align: center;
+    
+  }
+  .price-wrap .price{
+    display: block;
+  }
+  .btn-danger{
+    padding:10px 20px;
+    background-color: red;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  .btn-danger:hover{
+    border: 1px solid red;
+  }
+  .btn-danger span{
+    color: #fff;
+  }
+  .form-control{
+    max-width: 30px;
+  }
+ 
+  .cart{
     width: 50%;
     margin-left: 50%;
     margin-bottom: 30px;
@@ -595,19 +627,16 @@ h4 {
     border: 1px solid #ccc;
     padding: 30px;
   }
-  .subtotal h3{
-    padding-bottom: 20px;
-  }
-  .subtotal table{
-    border-collapse: collapse;
+  .cart .dlist-align{
     width: 100%;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
   }
-  .subtotal table td{
-    width: 50%;
-    border: 1px solid #ccc;
-    padding: 10px;
+  .cart .dlist-align dd{
+    display: flex;
   }
+
   /* ==================================product detail================================ */
   .row{
     display: flex;
@@ -672,6 +701,38 @@ h4 {
   padding: 10px 20px;
 }
 
+.shop-banner{
+  display: block;
+  text-align: center;
+  height: 300px;
+  width: 100%;
+  background: rgb(161,157,233);
+  background: linear-gradient(90deg, rgba(161,157,233,1) 0%, rgba(0,212,255,1) 48%, rgba(161,157,233,1) 100%);
+}
+.shop-banner h2{
+  padding-top: 100px;
+  margin-bottom: 60px;
+  font-size: 50px;
+  color: #fff;
+}
+.shop-banner a{
+  text-decoration: None;
+  padding: 10px 20px;
+  background-color: #f4c015;
+  color: #fff;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+.shop-banner a:hover{
+  background-color: transparent;
+  border: 1px solid #f4c015;
+  cursor: pointer;
+}
+
+.text-dark{
+  text-decoration: None;
+}
 .productline {
   text-decoration: None;
 }
@@ -687,3 +748,19 @@ h4 {
 .outofstock{
   color: red;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

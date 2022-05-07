@@ -7,20 +7,11 @@
 <!-- --------------------------section---------------------- -->
 
 <section class="container body-container">
-     <div class="d-flex main-categories">
-         {% for categorybysex in linkss %}
-        <a href="{{categorybysex.get_url}}" class="main-category-item">
-            <i class="fa-solid fa-person"></i>
-            <h3> {{categorybysex.category_name}} </h3>
-        </a>
-        {% endfor %}
-    </div>
     <div class="d-flex shop-body">
         <ul class="category-navigation-list">      
               <aside id="filters">
                 <h1 class="bigHead">FILTER SHOP ITEMS</h1>
                 <h2 class="bump"><span class="results">{{product_count}}</span> Results Found</h2>
-              
                 <div id="type">
                   <h1>Categories</h1>
                   <div class="bump">
@@ -47,7 +38,11 @@
                         <ul class="action">
                             <a href="{{product.get_url}}"><li><i class="fa-solid fa-eye"></i><span>View Details</span></li></a>
                             <a class = 'heart' href=""><li><i class="fa-regular fa-heart"></i><span> Add To Wish List</span></li></a>
-                            <a class = 'add' href=""><li><i class="fa-solid fa-cart-shopping"></i><span>Add To Cart</span></li></a>
+                            {% if product.stock <= 0  %}
+                                <li><i class="fa-solid fa-cart-shopping"></i><span>Out of Stock</span></li>
+                            {% else %}
+                                <a class = 'add' href="{% url 'add_cart' product.id%}"><li><i class="fa-solid fa-cart-shopping"></i><span>Add To Cart</span></li></a>
+                            {% endif %}
                         </ul>
                     </div>
                     <div class="content">
@@ -56,7 +51,11 @@
                          </div>
                          <div class="price_rating">
                              <h2>${{product.price}}</h2>
-                             <h3>${{product.stock}}</h3>
+                             {% if product.stock <= 0  %}
+                                <h3></h3>
+                            {% else %}
+                                <h3>${{product.stock}}</h3>
+                            {% endif %}
                              <div class="rating">
                               <i class="fa-solid fa-star"></i>
                               <i class="fa-solid fa-star"></i>
