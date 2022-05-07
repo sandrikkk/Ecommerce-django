@@ -662,6 +662,7 @@ h4 {
   }
   .col-2 .primary-btn{
     text-decoration: none;
+    border-radius: 10px;
     border: 1px solid #f4c015;
     background-color: #f4c015;
     padding: 15px 20px;
@@ -690,6 +691,24 @@ h4 {
     text-align: center;
     margin: 50px;
   }
+
+
+  .col-2 .primary-btnfor-condition{
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid green;
+    background-color: green;
+    padding: 15px 20px;
+    color: #fff;
+    transition: 0.3s;
+  }
+  .col-2 .primary-btnfor-condition:hover{
+    background-color: transparent;
+    border: 1px solid green;
+    color: #333;
+  }
+
+
 /* ======================help========================== */
 .accordion-container{
   border: 1px solid #ccc;

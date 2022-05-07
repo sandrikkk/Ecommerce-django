@@ -26,8 +26,15 @@
                 {% if single_product.stock <= 0  %}
                     <h1 class = "outofstock"> Out of Stock </h1>
                 {% else %}
+                
+                {% if in_cart %}
+                    <a class="btn primary-btnfor-condition" href="">Added To Cart</a>
+                    <a class="second-btn" href="{% url 'cart' %}">View Cart</a>
+
+                {% else %}
                     <a class="btn primary-btn" href="{% url 'add_cart' single_product.id%}">Add To Cart</a>
                     <a class="second-btn" href="">Buy Now</a>
+                    {% endif %}
                 {% endif %}
                 
             </div>
