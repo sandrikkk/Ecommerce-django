@@ -38,11 +38,10 @@
   <div class="container home-container">
     {% for product in products %}
       <div class="home-card">
-          <img src="{{product.images.url}}" alt="Atx-Jeans" style="width:100%">
-          <h1>Atx-Jeans</h1>
+          <a href="{{product.get_url}}"><img src="{{product.images.url}}" alt="Atx-Jeans" style="width:100%"></a>
+          <a class = 'productline' href="{{product.get_url}}"><h5>{{product.product_name}}</h5></a>
           <p class="price">${{product.price}}</p>
-          <p class = 'cardpartext'>{{product.description}}</p>
-          <p><button class="btn-primary">Add to Cart</button></p>
+          <a class = 'productline' href="{{product.get_url}}"><p><button class="btn-primary">Add to Cart</button></p></a>
       </div>
       {% endfor %}
   </div>

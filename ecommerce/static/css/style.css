@@ -111,6 +111,26 @@ cursor: pointer;
 .search-container button:hover {
 background: #ccc;
 }
+.cart-container a{
+  cursor: pointer;
+  color: #fff;
+}
+#lblCartCount {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+}
+.badge {
+padding-left: 9px;
+padding-right: 9px;
+-webkit-border-radius: 9px;
+-moz-border-radius: 9px;
+border-radius: 9px;
+cursor: pointer;
+}
 /* =======================footer======================= */
 @media (max-height:800px){
     footer{
@@ -489,6 +509,22 @@ h4 {
   margin-left: 25px;
   position: relative
 }
+.pagination {
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #f4c015;
+  color: white;
+}
 /* ======================shop lists================================= */
 
 .section_container{
@@ -679,11 +715,17 @@ h4 {
  
   .cart{
     width: 50%;
-    margin-left: 50%;
     margin-bottom: 30px;
     margin-top: 60px;
     border: 1px solid #ccc;
     padding: 30px;
+  }
+
+  .cart1-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+
   }
   .cart .dlist-align{
     width: 100%;

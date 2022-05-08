@@ -8,77 +8,104 @@
 
 <section class="container body-container">
     <div class="d-flex shop-body">
-        <ul class="category-navigation-list">      
-              <aside id="filters">
+        <ul class="category-navigation-list">
+            <aside id="filters">
                 <h1 class="bigHead">FILTER SHOP ITEMS</h1>
                 <h2 class="bump"><span class="results">{{product_count}}</span> Results Found</h2>
                 <div id="type">
-                  <h1>Categories</h1>
-                  <div class="bump">
-                      <div class = "box1">
-                          <h4><a href="{% url 'store' %}">All Products</a></h4>
-                      </div>
-                      {% for category in links %}
-                    <div class="box1">
-                      <h4><a href=" {{category.get_url}} "> {{category.category_name}} </a></h4>
+                    <h1>Categories</h1>
+                    <div class="bump">
+                        <div class="box1">
+                            <h4><a href="{% url 'store' %}">All Products</a></h4>
+                        </div>
+                        {% for category in links %}
+                        <div class="box1">
+                            <h4><a href=" {{category.get_url}} "> {{category.category_name}} </a></h4>
+                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                  </div>
                 </div>
                 <!--END SPECIALS RANGE -->
-              </aside>
+            </aside>
         </ul>
         <div class="blog-container">
-            
+
             {% if  'search' in request.path %}
             <h1 class="bigHead center">Search Result</h1>
             {% else %}
-                <h1 class="bigHead center">All PRODUCTS</h1>
+            <h1 class="bigHead center">All PRODUCTS</h1>
             {% endif %}
             <div class="section_container">
-                
+
                 {% if  products %}
-                    
+
                 {% for product in products %}
                 <div class="card">
                     <div class="imgBx">
                         <a href="{{product.get_url}}"><img src="{{product.images.url}}" alt=""></a>
                         <ul class="action">
-                            <a href="{{product.get_url}}"><li><i class="fa-solid fa-eye"></i><span>View Details</span></li></a>
-                            <a class = 'heart' href=""><li><i class="fa-regular fa-heart"></i><span> Add To Wish List</span></li></a>
+                            <a href="{{product.get_url}}">
+                                <li><i class="fa-solid fa-eye"></i><span>View Details</span></li>
+                            </a>
+                            <a class='heart' href="">
+                                <li><i class="fa-regular fa-heart"></i><span> Add To Wish List</span></li>
+                            </a>
                             {% if product.stock <= 0  %}
-                                <li><i class="fa-solid fa-cart-shopping"></i><span>Out of Stock</span></li>
+                            <li><i class="fa-solid fa-cart-shopping"></i><span>Out of Stock</span></li>
 
                             {% endif %}
                         </ul>
                     </div>
                     <div class="content">
-                         <div class="ProductName">
-                             <a class = 'productline' href="{{product.get_url}}"><h3>{{product.product_name}}</h3></a>
-                         </div>
-                         <div class="price_rating">
-                             <h2>${{product.price}}</h2>
-                             {% if product.stock <= 0  %}
-                                <h3></h3>
+                        <div class="ProductName">
+                            <a class='productline' href="{{product.get_url}}">
+                                <h3>{{product.product_name}}</h3>
+                            </a>
+                        </div>
+                        <div class="price_rating">
+                            <h2>${{product.price}}</h2>
+                            {% if product.stock <= 0  %}
+                            <h3></h3>
                             {% else %}
-                                <h3>${{product.stock}}</h3>
+                            <h3>${{product.stock}}</h3>
                             {% endif %}
-                             <div class="rating">
-                              <i class="fa-solid fa-star"></i>
-                              <i class="fa-solid fa-star"></i>
-                              <i class="fa-solid fa-star"></i>
-                              <i class="fa-solid fa-star"></i>
-                              <i class="fa-solid fa-star"></i>
-                             </div>
-                         </div>
+                            <div class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              {% endfor %}
-              {% else %}
-              <div>
-                  <h1>No Result Found.</h2>
-              </div>
-              {% endif %}
+                {% endfor %}
+                {% else %}
+                <div>
+                    <h1>No Result Found.</h2>
+                </div>
+                {% endif %}
+            </div>
+            <div class="pagination">
+                {% if products.has_other_pages %}
+                     {% if products.has_previous %}
+                        <a href="?page={{products.previous_page_number}}">&laquo;</a>
+                     {% else %}
+                        <a href="#">&laquo;</a>
+                    {% endif %}
+                {% for i in products.paginator.page_range %}
+                    {% if products.number == i %}                    
+                        <a class = 'active' href="#">{{i}}</a>
+                     {% else %}
+                         <a href="?page={{i}}">{{i}}</a>
+                     {% endif %}
+                {% endfor %}
+                    {% if products.has_next %}  
+                        <a href="?page={{products.next_page_number}}">&raquo;</a>
+                    {% else %}
+                        <a href="#">&raquo;</a>
+                    {% endif %}
+                {% endif %}
             </div>
         </div>
     </div>
