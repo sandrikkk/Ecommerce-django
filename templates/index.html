@@ -4,36 +4,49 @@
 {% block body %}
 <!-- ===================slider=============== -->
 <div class="container">
-    <div class="slideshow-container">
+  <div class="slideshow-container">
 
-        <div class="mySlides fade">
-          <div class="numbertext">1 / 3</div>
-          <img src="{% static 'images/banners/banner.jpg' %}" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <div class="numbertext">2 / 3</div>
-          <img src="{% static 'images/banners/banner.jpg' %}" style="width:100%">
-        </div>
-        
-        <div class="mySlides fade">
-          <div class="numbertext">3 / 3</div>
-          <img src="{% static 'images/banners/banner.jpg' %}" style="width:100%">
-        </div>
-        
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
-        
-        </div>
-        <br>
-        
-        <div style="text-align:center">
-          <span class="dot" onclick="currentSlide(1)"></span> 
-          <span class="dot" onclick="currentSlide(2)"></span> 
-          <span class="dot" onclick="currentSlide(3)"></span> 
-        </div>
+      <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="{% static 'images/banners/banner.jpg' %}" style="width:100%">
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="{% static 'images/banners/banner.jpg' %}" style="width:100%">
+      </div>
+      
+      <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="{% static 'images/banners/banner.jpg' %}" style="width:100%">
+      </div>
+      
+      <a class="prev" onclick="plusSlides(-1)">❮</a>
+      <a class="next" onclick="plusSlides(1)">❯</a>
+      
+      </div>
+      <br>
+      
+      <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span> 
+        <span class="dot" onclick="currentSlide(2)"></span> 
+        <span class="dot" onclick="currentSlide(3)"></span> 
+      </div>
 </div>
-    
+  <!-- =================slider2------------------- -->
+  <h4 class="header-title">Top Products</h4>
+  <div class="container home-container">
+    {% for product in products %}
+      <div class="home-card">
+          <img src="{{product.images.url}}" alt="Atx-Jeans" style="width:100%">
+          <h1>Atx-Jeans</h1>
+          <p class="price">${{product.price}}</p>
+          <p class = 'cardpartext'>{{product.description}}</p>
+          <p><button class="btn-primary">Add to Cart</button></p>
+      </div>
+      {% endfor %}
+  </div>
+
 
 <script src="{% static './javascript/main.js' %}"></script>
 </body>

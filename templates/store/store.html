@@ -29,8 +29,16 @@
               </aside>
         </ul>
         <div class="blog-container">
-            <h1 class="bigHead center">All PRODUCTS</h1>
+            
+            {% if  'search' in request.path %}
+            <h1 class="bigHead center">Search Result</h1>
+            {% else %}
+                <h1 class="bigHead center">All PRODUCTS</h1>
+            {% endif %}
             <div class="section_container">
+                
+                {% if  products %}
+                    
                 {% for product in products %}
                 <div class="card">
                     <div class="imgBx">
@@ -40,8 +48,7 @@
                             <a class = 'heart' href=""><li><i class="fa-regular fa-heart"></i><span> Add To Wish List</span></li></a>
                             {% if product.stock <= 0  %}
                                 <li><i class="fa-solid fa-cart-shopping"></i><span>Out of Stock</span></li>
-                            {% else %}
-                                <a class = 'add' href="{% url 'add_cart' product.id%}"><li><i class="fa-solid fa-cart-shopping"></i><span>Add To Cart</span></li></a>
+
                             {% endif %}
                         </ul>
                     </div>
@@ -67,6 +74,11 @@
                     </div>
                 </div>
               {% endfor %}
+              {% else %}
+              <div>
+                  <h1>No Result Found.</h2>
+              </div>
+              {% endif %}
             </div>
         </div>
     </div>

@@ -31,57 +31,86 @@ hr{
 }
 /* =================header============= */
 header{
-    height: 70px;
-    background-color:#f4c015;
-    margin-bottom: 50px;
+  height: 70px;
+  background-color:#f4c015;
+  margin-bottom: 50px;
 }
 .header-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .icons{
-    color: #fff;
-    width: 30px;
-    height: 30px;
+  color: #fff;
+  width: 30px;
+  height: 30px;
 }
 .header-text{
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+}
+.header-text a{
+text-decoration: none;
 }
 .header-text span{
-    color: #fff;
+  color: #fff;
 }
 .header-text-item{
-    color: #fff;
-    text-decoration: none;
-    padding: 15px;
+  color: #fff;
+  text-decoration: none;
+  padding: 15px;
 }
 .header-text-item:hover{
-    color: #333;
+  color: #333;
 }
-.shopping-icon{
-    color: #fff;
-    padding-right: 30px;
-    transition: 0.3s;
-}
-.shopping-icon:hover{
-    color: #333;
+.item-count {
+top: 0px;
+right: -10px;
+width: 16px;
+height: 16px;
+border-radius: 50%;
+background: #e74c3c;
+color: #fff;
+text-align: center;
+font-size: 15px;
 }
 .logo a{
-    font-size: 25px;
-    text-decoration: none;
-    color: #fff;
+  font-size: 25px;
+  text-decoration: none;
+  color: #fff;
 }
 nav a{
-    color: #fff;
-    text-decoration: none;
-    padding: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 15px;
 }
 nav a:hover{
-    color: #333;
+  color: #333;
+}
+.search-container{
+margin-right: 20px;
+}
+.searchbar-input {
+padding: 6px;
+margin-top: 8px;
+font-size: 17px;
+border: none;
 }
 
+.search-container button {
+float: right;
+padding: 6px 10px;
+margin-top: 8px;
+margin-right: 16px;
+background: #ddd;
+font-size: 17px;
+border: none;
+cursor: pointer;
+}
+
+.search-container button:hover {
+background: #ccc;
+}
 /* =======================footer======================= */
 @media (max-height:800px){
     footer{
@@ -205,6 +234,35 @@ nav a:hover{
   .footer-distributed .footer-center i{
     margin-left: 0;
   }
+}
+/* ==========================home page============================== */
+.home-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header-title{
+  font-size: 60px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+.home-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.price {
+  color: grey;
+  font-size: 22px;
+  padding: 15px 0;
+}
+.cardpartext{
+  padding: 15px 0;
+}
+.card button:hover {
+  opacity: 0.7;
 }
 /* =============auth=============== */
 .auth-form-container{
@@ -677,6 +735,7 @@ h4 {
   .second-btn{
     background-color: transparent;
     border: 1px solid #f4c015;
+    border-radius: 10px;
     color: #333;
     padding: 15px 20px;
     transition: 0.3s;
@@ -691,7 +750,7 @@ h4 {
     text-align: center;
     margin: 50px;
   }
-
+ 
 
   .col-2 .primary-btnfor-condition{
     text-decoration: none;

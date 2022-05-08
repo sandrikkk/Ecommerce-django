@@ -5,17 +5,26 @@
         </div>
         <nav>
             <div>
-                <a href=" {% url 'index' %} ">Home</a>
-                <a href=" {% url 'store' %} ">Shop</a>
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'store' %}">Shop</a>
                 <a href="#">Contact</a>
                 <a href="#">Rules</a>
             </div>
         </nav>
         <div class="header-text">
-            <a href="#"><i class="fa-solid fa-cart-shopping shopping-icon"></i></a>
-            <a class="header-text-item" href="">Login</a>
+            <div class="search-container">
+                <form action="{% url 'search' %}" method = 'GET'>
+                  <input class="searchbar-input" type="text" placeholder="Search.." name = "keyword">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <span class="cart-container">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <span class="item-count">2</span>
+            </span>
+            <a class="header-text-item" href="./auth.html">Login</a>
             <span>|</span>
-            <a class="header-text-item" href="">Register</a>
+            <a class="header-text-item" href="./registration.html">Register</a>
         </div>
     </div>
 </header>
